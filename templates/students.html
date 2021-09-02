@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block title %}All Students{% endblock title %}
+{% block home_active %}text-black btn-secondary{% endblock home_active %}
+
+{% block body_containt %}
+<div class="container">
+    {% comment %} Static  {% endcomment %}
+    <div class="mt-1 px-3  bg-body rounded shadow-sm">
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small text-warning lh-sm w-100">
+                    <div class="row">
+                        <div class="col-3"><span>Student Name</span></div>
+                        <div class="col-3"><span>Father's Name</span></div>
+                        <div class="col-3"><span>Percentage</span></div>
+                        <div class="col-2"><span>Phone No.</span></div>
+                        <div class="col-1"></div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    {% comment %} Dynamic from database {% endcomment %}
+    {% for Student in Students %}
+        <div class="my-2 px-3  bg-body rounded shadow-sm">
+            <div class="d-flex text-muted pt-3">
+                <div class="pb-3 mb-0 small lh-sm w-100">
+                    <div class="d-flex align-items-center text-white justify-content-between">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-3"><span>{{Student.sname}}</span></div>
+                                <div class="col-3"><span>{{Student.fname}}</span></div>
+                                <div class="col-3"><span>{{Student.percentage}}</span></div>
+                                <div class="col-2"><span>{{Student.phone}}</span></div>
+                                <div class="col-1">
+                                <!-- Button trigger modal -->
+                                <a href="/{{Student.slug}}/"><button type="button" class="btn btn-secondary">Details</button></div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    {% endfor %}
+    
+   <!-- *********** Pagination Start ************ -->
+   {% block pagination %}
+        <br>
+        <div class="container">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    {% if Students.has_previous %}
+                        <li class="page-item">
+                        <a class="page-link" href="?page={{Students.previous_page_number}}" tabindex="-1" aria-disabled="true">Previous</a>
+                        </li>
+                    {% endif %}
+                    <li class="page-item"><a class="page-link" href="?page={{Students.number}}">{{Students.number}}</a></li>
+                    {% if Students.has_next %}
+                        <li class="page-item">
+                        <a class="page-link" href="?page={{Students.next_page_number}}">Next</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    {% endblock pagination %}
+    <!-- *********** Pagination End ********* -->
+
+    <!-- ********* Student Detail Modal Start ******** -->
+    <!-- Modal -->
+        <div class="modal fade" id="DetailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">{{student.fname}}'s Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Student
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ********* Student Detail Modal End ******** -->
+</div>
+
+{% endblock body_containt %}

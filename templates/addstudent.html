@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Student{% endblock title %}
+
+{% block addstudent_active %} text-black btn-secondary{% endblock addstudent_active %}
+{% block body_containt %}
+    <div class="container my-3">
+        <form action="/addstudent/" method="post">
+        {% csrf_token %}
+            <div class="row">
+                <div class="col-6">
+                    <h4>Personal information</h4>
+                        <div class="mb-3">
+                            <label for="sname" class="form-label">Student Name</label>
+                            <input type="text" class="form-control" name="sname" id="sname" placeholder="Student Name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="fname" class="form-label">Father's Name</label>
+                            <input type="text" class="form-control" name="fname" id="fname" placeholder="Father's Name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Student's Email</label>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Student's Email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="dob" class="form-label">Date of Birth</label>
+                            <input type="date" name="dob" id="dob">
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Student's Phone No.</label>
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Student's Phone Number">
+                        </div>
+
+
+                        <select class="form-select" name="Class" id="Class" aria-label=".form-select-sm example">
+                            <option selected>Class</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                        <div class="mb-3">
+                            <label for="percentage" class="form-label">Percentage</label>
+                            <input type="text" class="form-control" id="percentage" name="percentage" placeholder="Percentage">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <h4>Student Address</h4>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="address" name="address" placeholder="Address">
+                        </div>
+                        <div class="mb-3">
+                            <label for="city" class="form-label">city</label>
+                            <input type="text" class="form-control" id="city" name="city" placeholder="City">
+                        </div>
+                        <div class="mb-3">
+                            <label for="state" class="form-label">State</label>
+                            <input type="text" class="form-control" id="state" name="state" placeholder="State">
+                        </div>
+                        <div class="mb-3">
+                            <label for="pincode" class="form-label">Pin</label>
+                            <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Pincode">
+                        </div>
+                        <button type="submit" class="btn btn-secondary text-dark"> Submit</button>
+                    </div>
+                </div>
+        </form>
+        <hr>
+    </div>
+{% endblock body_containt %}

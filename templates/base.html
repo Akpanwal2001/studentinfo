@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <title>{% block title %}{% endblock title %}</title>
+  </head>
+  <body>
+    {% comment %} navbar start here {% endcomment %}
+   <header class="p-1 m-1 bg-dark text-white">
+        <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mx-3 mb-lg-0 text-warning text-decoration-none">
+                <h3 text-warning>Student Inforamation</h3>
+            </a>
+            <div class="mx-5">
+                <a href="/"><button type="button" class="btn btn-outline-light {% block home_active %}{% endblock home_active %} me-2">All Students</button></a>
+                <a href="/addstudent/"><button type="button" class="btn btn-outline-light {% block addstudent_active %}{% endblock addstudent_active %} me-2">Add New Student</button></a> 
+            </div>
+        </div>
+        </div>
+    </header>
+    {% comment %} navbar end here {% endcomment %}
+    
+    {% comment %} message start {% endcomment %}
+     <!-- *********** Messages *********** -->
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} mb-0 alert-dismissible fade show" role="alert">
+        <strong>Message : </strong> {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% comment %} message end {% endcomment %}
+    {% block body_containt %}{% endblock body_containt %}
+    {% comment %} Footer start {% endcomment %}
+    <footer class="footer mt-3 py-3 bg-dark">
+        <div class="container-fluid d-flex justify-content-center">
+            <span class="text-muted">All CopyRights reserved By @StudentInfo</span>
+        </div>
+    </footer>
+
+    {% comment %} Footer end {% endcomment %}
+
+    
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+  </body>
+</html>

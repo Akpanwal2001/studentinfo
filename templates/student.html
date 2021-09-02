@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}{{student.sname}}{% endblock title %}
+{% block body_containt %}
+<div class="container">
+    <div class="h-100 p-1 text-white shadow-lg bg-dark rounded-3">
+        <h4 class="p-2">{{student.sname}}'s Details</h4>
+        <hr>
+        <div class="container">
+            <table class="table table-dark table-bordered border-warning shadow-lg">
+                <tbody>
+                    <tr>
+                    <td colspan="2">Name</td>
+                    <td>{{student.sname}}</td>
+                    </tr>
+                    <td colspan="2">Father Name</td>
+                    <td>{{student.fname}}</td>
+                    </tr>
+                    <td colspan="2">Email</td>
+                    <td>{{student.email}}</td>
+                    </tr>
+                    <tr>
+                    <td colspan="2">Phone</td>
+                    <td>{{student.phone}}</td>
+                    </tr>
+                    <tr>
+                    <td colspan="2">Date of Birth</td>
+                    <td>{{student.dob}}</td>
+                    </tr>
+                    <tr>
+                    <td colspan="2">Class</td>
+                    <td>{{student.Class}}<sup>th</sup></td>
+                    </tr>
+                    <tr>
+                    <td colspan="2">Percentage</td>
+                    <td>{{student.percentage}}%</td>
+                    </tr>
+                    <tr>
+                    <td colspan="2">Address</td>
+                    <td>{{student.address}}</td>
+                    </tr>
+                    <tr>
+                    <td colspan="2">City</td>
+                    <td>{{student.city}}</td>
+                    </tr>
+                    <tr>
+                    <td colspan="2">State</td>
+                    <td>{{student.state}}</td>
+                    </tr>
+                    <tr>
+                    <td colspan="2">Pincode</td>
+                    <td>{{student.pincode}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock body_containt %}
